@@ -4,13 +4,11 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:saluswellpatient/src/apppointmentsSection/providers/appointmentProvider.dart';
 import 'package:saluswellpatient/src/authenticationsection/providers/authProvider.dart';
 import 'package:saluswellpatient/src/authenticationsection/providers/savUserDetailsProvider.dart';
-
 import 'package:saluswellpatient/src/authenticationsection/screens/createAccountScreen.dart';
 import 'package:saluswellpatient/src/authenticationsection/screens/loginScreen.dart';
 import 'package:saluswellpatient/src/authenticationsection/screens/personalInformationScreen.dart';
@@ -26,7 +24,6 @@ import 'package:saluswellpatient/src/onboardingsection/screens/onboardingscreen_
 import 'package:saluswellpatient/src/onboardingsection/screens/onboardingscreen_three.dart';
 import 'package:saluswellpatient/src/onboardingsection/screens/onboardingscreen_two.dart';
 import 'package:saluswellpatient/src/reviewsSection/providers/review_provider.dart';
-
 import 'common/helperFunctions/navigatorHelper.dart';
 import 'common/utils/themes.dart';
 
