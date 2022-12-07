@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:saluswellpatient/common/helperFunctions/navigatorHelper.dart';
 import 'package:saluswellpatient/src/chatSection/screens/messages.dart';
@@ -81,9 +82,9 @@ class DoctorDetails extends StatelessWidget {
                       context: context,
                       widget: MessagesView(
                           image: userModel!.profilePicture.toString(),
-                          receiverID: "92q6zZrNmbN3IF891JuhbM9htYk2",
-                          myID: "YImb5dnGM7dZAyzEDbz6fw7x3oh1",
-                          name: "SalusWell Patient"));
+                          receiverID: userModel.userId.toString(),
+                          myID: FirebaseAuth.instance.currentUser!.uid,
+                          name: userModel.userName.toString()));
                   // Navigator.maybePop(context);
                 },
                 icon: const Icon(
