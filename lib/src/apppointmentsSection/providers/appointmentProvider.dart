@@ -303,11 +303,25 @@ class AppointmentProvider extends ChangeNotifier {
   displayPaymentSheet() async {
     try {
       await Stripe.instance
-          .presentPaymentSheet(
-              parameters: PresentPaymentSheetParameters(
-        clientSecret: paymentIntentData!['client_secret'],
-        confirmPayment: true,
-      ))
+          .confirmPayment(
+      //  data: PaymentMethodParams.card(paymentMethodData: PaymentMethodData.fromJson(json)),
+      //     options: PaymentMethodOptions(
+      //       setupFutureUsage: PaymentIntentsFutureUsage.OnSession
+      //     ),
+          paymentIntentClientSecret: paymentIntentData!['client_secret'],
+
+
+
+
+
+
+      //
+      //         parameters: PresentPaymentSheetParameters(
+      //   clientSecret: paymentIntentData!['client_secret'],
+      //   confirmPayment: true,
+      //
+      // )
+      )
           .then((newValue) async {
         print('payment intent' + paymentIntentData!['id'].toString());
         print(
