@@ -117,6 +117,7 @@ class _CreateAppointmentScreenState extends State<CreateAppointmentScreen> {
           ),
           body: SingleChildScrollView(
               child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
                 height: 10,

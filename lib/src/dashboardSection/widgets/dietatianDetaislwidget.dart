@@ -18,6 +18,7 @@ class PopularDietitiansWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+
         Container(
           height: 150,
           width: 230,

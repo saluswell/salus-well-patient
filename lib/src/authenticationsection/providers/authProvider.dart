@@ -230,13 +230,12 @@ class AuthProvider extends ChangeNotifier {
             //   toNext(context: context, widget: ResendEmailScreen());
           }).whenComplete(() {
             toRemoveAll(
-                context: navstate.currentState!.context,
-                widget: BottomNavScreen());
+                context: navstate.currentState!.context, widget: LoginScreen());
             showSnackBarMessage(
                 backgroundcolor: AppColors.whitecolor,
                 contentColor: AppColors.blackcolor,
                 context: navstate.currentState!.context,
-                content: "Account Created Successfully");
+                content: "Account Created Successfully! Now Login ");
           });
         }
       });
@@ -310,7 +309,6 @@ class AuthProvider extends ChangeNotifier {
             backgroundColor: AppColors.whitecolor,
             title: const Text('ALert!'),
             content: Text(e.message.toString()),
-
             actions: <Widget>[
               ElevatedButton(
                 child: const Text('Okay'),

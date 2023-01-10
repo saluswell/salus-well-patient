@@ -302,27 +302,7 @@ class AppointmentProvider extends ChangeNotifier {
 
   displayPaymentSheet() async {
     try {
-      await Stripe.instance
-          .confirmPayment(
-      //  data: PaymentMethodParams.card(paymentMethodData: PaymentMethodData.fromJson(json)),
-      //     options: PaymentMethodOptions(
-      //       setupFutureUsage: PaymentIntentsFutureUsage.OnSession
-      //     ),
-          paymentIntentClientSecret: paymentIntentData!['client_secret'],
-
-
-
-
-
-
-      //
-      //         parameters: PresentPaymentSheetParameters(
-      //   clientSecret: paymentIntentData!['client_secret'],
-      //   confirmPayment: true,
-      //
-      // )
-      )
-          .then((newValue) async {
+      await Stripe.instance.presentPaymentSheet().then((newValue) async {
         print('payment intent' + paymentIntentData!['id'].toString());
         print(
             'payment intent' + paymentIntentData!['client_secret'].toString());
@@ -352,14 +332,15 @@ class AppointmentProvider extends ChangeNotifier {
               body:
                   "Patient ${currentUserModel!.userName} send you a payment for appointment",
               title: "Payment Update");
-          notificationFirebaseServices.createNotification(NotificationModelFirebase(
-            //  senderId: currentUserModel!.userId,
-              recieverId: userModelDietitian!.userId,
-              notificationDateTime: Timestamp.now(),
-              notificationTitle: "Payment Update",
-              notificationDescription:
-              "Patient ${currentUserModel!.userName} send you a payment for appointment",
-              notificationtype: "Payment"));
+          notificationFirebaseServices.createNotification(
+              NotificationModelFirebase(
+                  //  senderId: currentUserModel!.userId,
+                  recieverId: userModelDietitian!.userId,
+                  notificationDateTime: Timestamp.now(),
+                  notificationTitle: "Payment Update",
+                  notificationDescription:
+                      "Patient ${currentUserModel!.userName} send you a payment for appointment",
+                  notificationtype: "Payment"));
           // NotificationServices().pushOneToOneNotification(
           //   title: "Payment Update",
           //   body:

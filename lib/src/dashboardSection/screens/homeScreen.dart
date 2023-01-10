@@ -7,6 +7,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:saluswellpatient/src/authenticationsection/services/userServices.dart';
+import 'package:saluswellpatient/src/dashboardSection/screens/search_care_providers_screen.dart';
 import 'package:saluswellpatient/src/dashboardSection/services/home_services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../common/helperFunctions/navigatorHelper.dart';
@@ -170,21 +171,30 @@ class _HomeScreenState extends State<HomeScreen> {
                       //     child: const Center(
                       //       child: Text("send"),
                       //  )),
-                      SizedBox(
-                        height: 60,
-                        child: Card(
-                          elevation: 4,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(13),
-                          ),
-                          child: TextFormField(
-                            decoration: const InputDecoration(
-                                contentPadding:
-                                    EdgeInsets.only(left: 15, top: 19),
-                                border: InputBorder.none,
-                                hintText: "Search Dietitians...",
-                                hintStyle: TextStyle(color: Colors.grey),
-                                suffixIcon: Icon(Icons.search)),
+                      InkWell(
+                        onTap: () {
+                          toNext(
+                              context: context,
+
+                              widget: SearchCarProviderScreen());
+                        },
+                        child: SizedBox(
+                          height: 60,
+                          child: Card(
+                            elevation: 4,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(13),
+                            ),
+                            child: TextFormField(
+                              enabled: false,
+                              decoration: const InputDecoration(
+                                  contentPadding:
+                                      EdgeInsets.only(left: 15, top: 19),
+                                  border: InputBorder.none,
+                                  hintText: "Search Care Providers...",
+                                  hintStyle: TextStyle(color: Colors.grey),
+                                  suffixIcon: Icon(Icons.search)),
+                            ),
                           ),
                         ),
                       ),
@@ -226,25 +236,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(
                         height: 15,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Recommended Dietitians",
-                            style: fontW5S12(context)!.copyWith(
-                                fontSize: 17,
-                                color: AppColors.blackcolor,
-                                fontWeight: FontWeight.w700),
-                          ),
-                          Text(
-                            "View All",
-                            style: fontW5S12(context)!.copyWith(
-                                fontSize: 14,
-                                color: AppColors.appcolor,
-                                decoration: TextDecoration.underline,
-                                fontWeight: FontWeight.w700),
-                          ),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Dietitians",
+                              style: fontW5S12(context)!.copyWith(
+                                  fontSize: 17,
+                                  color: AppColors.blackcolor,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                            Text(
+                              "View All",
+                              style: fontW5S12(context)!.copyWith(
+                                  fontSize: 14,
+                                  color: AppColors.appcolor,
+                                  decoration: TextDecoration.underline,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         height: 10,
@@ -314,7 +327,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Recommended Nutritionist",
+                            "Fitness Trainers",
                             style: fontW5S12(context)!.copyWith(
                                 fontSize: 17,
                                 color: AppColors.blackcolor,
